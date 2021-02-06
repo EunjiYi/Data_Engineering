@@ -67,3 +67,17 @@ SELECT TO_CHAR(ts, 'YYYY-MM') AS time, count(userid) FROM raw_data.user_session_
 > ('2019-08', 17151)
 > ('2019-11', 18059)
 
+
+
+
+
+`+` 첨삭
+
+```sql
+SELECT TO_CHAR(ts, 'YYYY-MM') AS time, count(DISTINCT userid)
+FROM raw_data.user_session_channel A
+JOIN raw_data.session_timestamp B ON A.sessionid = B.sessionid
+GROUP BY 1
+ORDER BY 2 DESC
+```
+
